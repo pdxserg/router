@@ -9,7 +9,7 @@ const PATH = {
     PAGE2: '/puma',
     PAGE3: '/abibas',
     PRICES: '/prices',
-    PAGE: '/page'
+    PAGE: '/page!'
 } as const
 
 function App() {

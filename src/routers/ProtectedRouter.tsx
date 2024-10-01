@@ -9,14 +9,17 @@ type Props = {
 children:ReactNode
 };
 export const ProtectedRouter = (props: Props) => {
-	const isLogged= false
+	const isLogged= true
 
 
 	return (
 		<div>
 			{isLogged
 				? props.children
-				: <Navigate to={'/error'}/>}
+				:
+				// <Error404/>
+				<Navigate to={'/error'}/>
+				 }
 		</div>
 	);
 };

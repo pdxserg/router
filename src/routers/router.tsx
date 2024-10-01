@@ -11,12 +11,14 @@ import {ProtectedRouter} from "./ProtectedRouter";
 
 
 const PATH = {
-	PAGE: '/page',
+	PAGE: '/page!',
 	ADIDAS: '/adidas',
 	PUMA: '/puma',
 	ABIBAS: '/abibas',
 	PRICES: '/prices',
-	ROUTES: '/:model/:id'
+	ROUTES: '/:model/:id',
+	ERROR: '/error'
+
 } as const
 
 export const router = createBrowserRouter([
@@ -45,6 +47,11 @@ export const router = createBrowserRouter([
 				path: PATH.ROUTES,
 				element: <Model/>,
 			},
+			{
+				path: PATH.ERROR,
+				element: <Error404/>,
+			},
+
 			{
 				path: PATH.PAGE,
 				element: (
