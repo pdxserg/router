@@ -1,4 +1,4 @@
-import {createBrowserRouter, Route} from "react-router-dom";
+import {createBrowserRouter} from "react-router-dom";
 import App from "../App";
 import {Error404} from "../components/pages/Error404";
 import {Adidas} from "../components/pages/Adidas";
@@ -7,6 +7,7 @@ import {Abibas} from "../components/pages/Abibas";
 import {Prices} from "../components/pages/Prices";
 import {Model} from "../components/pages/Model";
 import {ProtctedPage} from "../components/pages/ProtctedPage";
+import {ProtectedRouter} from "./ProtectedRouter";
 
 
 const PATH = {
@@ -46,7 +47,11 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: PATH.PAGE,
-				element: <ProtctedPage/>,
+				element: (
+					<ProtectedRouter>
+						<ProtctedPage/>
+					</ProtectedRouter>
+				)
 			}
 
 		]

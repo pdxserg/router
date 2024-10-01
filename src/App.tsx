@@ -2,7 +2,6 @@ import React from 'react';
 import styles from "./components/Site.module.css";
 import {NavLink, Outlet} from 'react-router-dom';
 import {S} from './components/pages/_styles'
-import {Crosses} from "./components/pages/Crosses";
 
 
 const PATH = {
@@ -26,7 +25,7 @@ function App() {
                     <S.NavWrapper><NavLink to={PATH.PAGE}>Protected page</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
-                    <Crosses />
+                    <Outlet />
                     {/*<Routes>*/}
                     {/*    <Route path={'/'} element={<Navigate to={PATH.PAGE1}/>}/>*/}
 
