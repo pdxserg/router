@@ -5,11 +5,12 @@ import {Adidas} from "../components/pages/Adidas";
 import {Puma} from "../components/pages/Puma";
 import {Abibas} from "../components/pages/Abibas";
 import {Prices} from "../components/pages/Prices";
-import {Crosses} from "../components/pages/Crosses";
 import {Model} from "../components/pages/Model";
+import {ProtctedPage} from "../components/pages/ProtctedPage";
 
 
 const PATH = {
+	PAGE: '/page',
 	ADIDAS: '/adidas',
 	PUMA: '/puma',
 	ABIBAS: '/abibas',
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
 			{
 				path: PATH.ROUTES,
 				element: <Model/>,
+			},
+			{
+				path: PATH.PAGE,
+				element: <ProtctedPage/>,
 			}
 
 		]
