@@ -7,27 +7,15 @@ import {Abibas} from "../components/pages/Abibas";
 import {Prices} from "../components/pages/Prices";
 import {Model} from "../components/pages/Model";
 import {ProtctedPage} from "../components/pages/ProtctedPage";
-import {ProtectedRouter} from "./ProtectedRouter";
 import {Login} from "../components/login/Login";
 import * as React from "react";
 
 
-
-
-
-export const PriveddRouter = () => {
-	const isAuth= false
-
-
-	return (
-
-		<div>
-			{isAuth
-				? <Outlet/>
-				: <Navigate to={'/login'}/>
-			}
-		</div>
-	);
+export const PrivateRouter = () => {
+	const isAuth = true
+	return <>
+		{isAuth ? <Outlet/> : <Navigate to={'/login'}/>}
+	</>
 };
 
 const PATH = {
@@ -42,7 +30,7 @@ const PATH = {
 
 } as const
 
-const publickRoutes:RouteObject[] =[
+const publickRoutes: RouteObject[] = [
 	{
 		path: PATH.ADIDAS,
 		element: <Adidas/>,
@@ -72,13 +60,12 @@ const publickRoutes:RouteObject[] =[
 		element: <Error404/>,
 	},
 ]
-const privateRoutes:RouteObject[] =[
+const privateRoutes: RouteObject[] = [
 	{
 		path: PATH.PAGE,
-		element:<ProtctedPage/>
+		element: <ProtctedPage/>
 	},
 ]
-
 
 
 export const router = createBrowserRouter([
@@ -88,7 +75,10 @@ export const router = createBrowserRouter([
 		errorElement: <Navigate to={PATH.ERROR}/>,
 		children: [
 			...publickRoutes,
-			...privateRoutes
+			{
+				element:<PrivateRouter/>,
+				children: privateRoutes
+			}
 		]
 	}
 
