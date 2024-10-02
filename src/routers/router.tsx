@@ -8,6 +8,7 @@ import {Prices} from "../components/pages/Prices";
 import {Model} from "../components/pages/Model";
 import {ProtctedPage} from "../components/pages/ProtctedPage";
 import {ProtectedRouter} from "./ProtectedRouter";
+import {Login} from "../components/login/Login";
 
 
 const PATH = {
@@ -17,7 +18,8 @@ const PATH = {
 	ABIBAS: '/abibas',
 	PRICES: '/prices',
 	ROUTES: '/:model/:id',
-	ERROR: '/error'
+	ERROR: '/error',
+	LOGIN: '/login',
 
 } as const
 
@@ -46,6 +48,10 @@ export const router = createBrowserRouter([
 			{
 				path: PATH.ROUTES,
 				element: <Model/>,
+			},
+			{
+				path: PATH.LOGIN,
+				element: <Login/>,
 			},
 			{
 				path: PATH.ERROR,
