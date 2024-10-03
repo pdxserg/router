@@ -32,6 +32,10 @@ const PATH = {
 
 const publickRoutes: RouteObject[] = [
 	{
+		path: '/',
+		element: <Adidas/>,
+	}
+	,{
 		path: PATH.ADIDAS,
 		element: <Adidas/>,
 	},
@@ -76,7 +80,7 @@ export const router = createBrowserRouter([
 		children: [
 			...publickRoutes,
 			{
-				element:<PrivateRouter/>,
+				 element:<PrivateRouter/>,
 				children: privateRoutes
 			}
 		]
