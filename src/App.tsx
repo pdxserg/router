@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./components/Site.module.css";
-import {NavLink, Outlet} from 'react-router-dom';
+import {Link, NavLink, Outlet, useNavigate} from 'react-router-dom';
 import {S} from './components/pages/_styles'
 
 
@@ -15,6 +15,10 @@ const PATH = {
 } as const
 
 function App() {
+	const novigate = useNavigate()
+	const novigateHandler = () => {
+		novigate(-1)
+	}
 	return (
 		<div>
 			<div className={styles.header}><h1>HEADER</h1></div>
@@ -30,8 +34,8 @@ function App() {
 				</div>
 				<div className={styles.content}>
 					<div className={styles.HorizontalNavigation}>
-						<a  className={styles.LinkLikeButton} href={PATH.PAGE1}>main page</a>
-						<a  className={styles.ButtonLikeLink} href={PATH.PAGE1}>Back</a>
+						<Link className={styles.LinkLikeButton} to={PATH.PAGE1}>main page</Link>
+						<button className={styles.ButtonLikeLink} onClick={novigateHandler}>Back</button>
 					</div>
 
 					<Outlet/>
